@@ -1,0 +1,10 @@
+include(BarFunc.cmake)
+
+function(FooFunction)
+    set(options)
+    set(oneValueArgs VALUE)
+    set(multiValueArgs)
+    cmake_parse_arguments(ARG "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
+    message("FooFunction: ${ARG_VALUE}")
+    BarFunction(VALUE ${ARG_VALUE})
+endfunction(FooFunction)

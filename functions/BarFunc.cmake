@@ -1,0 +1,7 @@
+function(BarFunction)
+    set(options)
+    set(oneValueArgs VALUE)
+    set(multiValueArgs)
+    cmake_parse_arguments(ARG "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
+    message("BarFunction: ${ARG_VALUE}")
+endfunction(BarFunction)
