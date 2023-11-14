@@ -8,3 +8,4 @@ add_subdirectory(bar)
 add_subdirectory(foo)
 
 add_executable(main main.cpp)
+install(TARGETS main DESTINATION .)
