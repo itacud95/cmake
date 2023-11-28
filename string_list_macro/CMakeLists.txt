@@ -5,20 +5,25 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_executable(${PROJECT_NAME} main.cpp)
 
-set(libraries 
-    "String1"
-    "String2"
-    "String3"
+set(TEST_MODULES
+    testmodule_1
+    testmodule_2
+    testmodule_3
     )
 
-string(REPLACE ";" "," strings_libraries "${libraries}")
+message("TEST_MODULES: " ${TEST_MODULES})
 
-message(STATUS "strings_libraries='${strings_libraries}'")
-message("libraries: " ${libraries})
+function(import_library library)
+    message("importing library: ${library}")
+endfunction(import_library)
 
-foreach(name IN LISTS libraries)
-    message("adding library: ${name}")
+set(PREFIXED_LIBRARIES "")
+foreach(MODULE IN LISTS TEST_MODULES)
+    import_library(${MODULE})
+    list(APPEND PREFIXED_LIBRARIES "lib${MODULE}_foo.so")
 endforeach()
 
-target_compile_definitions(${PROJECT_NAME} PRIVATE LIBRARIES="${strings_libraries}")
+string(REPLACE ";" "," strings_libraries "${PREFIXED_LIBRARIES}")
+message("final: ${PREFIXED_LIBRARIES}")
 
+target_compile_definitions(${PROJECT_NAME} PRIVATE LIBRARIES="${strings_libraries}")

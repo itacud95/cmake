@@ -2,5 +2,5 @@
 
 cmake -Bbuild && \
 cmake --build build && \
-./build/string_list_macrostring_list_macro
+./build/string_list_macro
 
