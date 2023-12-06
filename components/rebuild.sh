@@ -34,8 +34,8 @@ cmake --build build --target main || exit 1
 dbg "build target bar"
 cmake --build build --target bar || exit 1
 
-dbg "install target component executable"
-cmake --install build --component executable
+dbg "install target component main"
+cmake --install build --component main 
 
 dbg "install component library"
 cmake --install build --component library
