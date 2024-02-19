@@ -11,4 +11,6 @@ add_library(test_framework SHARED IMPORTED)
 set_target_properties(test_framework PROPERTIES
     IMPORTED_LINK_INTERFACE_LANGUAGES "C"
     IMPORTED_LOCATION ${FRAMEWORK_DIR}/libtest_framework.a
+    INTERFACE_INCLUDE_DIRECTORIES 
+		${CMAKE_CURRENT_LIST_DIR}/../modules/test_framework/include
 )
